@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="row pt-4 my-3">
+        <div class="col-md-12">
+            <h3>게시판</h3>
+        </div>
+    </div>
+    <div class="row my-3">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <th>No</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>상품 가격</th>
+                <th>발행일</th>
+                <th>비고</th>
+            </thead>
+            <tbody>
+                {% for post in board_list %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td><a href="{% url 'hanbat_market:detail' post.id %}">{{ post.title }}</a></td>
+                    <td width="100">{{ post.author }}</td>
+                    <td>{{ post.price }}</td>
+                    <td>{{ post.published_date|date:"Y-m-d" }}</td>
+                    <td width="120">
+                        <a href="{% url 'hanbat_market:edit' post.id %}" class="btn btn-outline-info btn-sm">수정</a> 
+                        <a href="{% url 'hanbat_market:delete' post.id %}" onclick="if(!confirm('정말 삭제하시겠습니까?')){return false;}" 
+                        class="btn b    tn-outline-danger btn-sm">삭제</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-md-12 ">
+            <a href="{% url 'hanbat_market:regist' %}" class="btn btn-outline-secondary">글 등록</a>
+        </div>
+    </div>
+
+    <!-- 페이징 처리 -->
+    <div class="row my-3">
+        <div class="col-md-12 text-center">
+            {% if board_list.has_previous %}
+                <a href="?page=1">처음</a>
+                <a href="?page={{ board_list.previous_page_number }}">이전</a>
+            {% endif %}
+                <!-- 페이지리스트 -->
+                <span style="color:red;font-weight:bold;">{{ board_list.number }}</span> 
+                <span> / </span>
+                <span style="font-weight:bold;">{{ board_list.paginator.num_pages }}</span>
+            {% if board_list.has_next %}
+                <a href="?page={{ board_list.next_page_number }}">다음</a>
+                <a href="?page={{ board_list.paginator.num_pages }}">끝</a>
+            {% endif %}          
+            <form method="GET" action="">
+                <div id="search">
+                    <input name="search" type="text">
+                    <button class="btn btn-primary" type="submit">검색</button>
+                  </div>
+                  </form>  
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+ 
