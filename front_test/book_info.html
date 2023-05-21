@@ -1,0 +1,82 @@
+<!Doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>book_info</title>
+    <link rel="stylesheet" href="book_info.css">
+    <script>
+        function submit() {
+            let value = confirm("등록하시겠습니까?");
+            if (value === true) {
+                alert("등록 완료 !!");
+                location.href = "index.html";
+            } else {
+                alert("등록 실패 !!");
+                location.href = "index.html";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div id="logo">Hanbat-Market
+            <img id="logo_img" src="hanbat_logo.png" alt="HBNU_Logo">
+        </div>
+        </div>
+    </header>
+    <main>
+        <h3>책의 자세한 정보를 작성해주세요.</h3>
+        <div id="book_info">
+            <input id="book_name" type="text" placeholder="책 이름"><br>
+            <input id="book_written" type="text" placeholder="저자"><br>
+            <input id="book_company" type="text" placeholder="출판사"><br>
+            <input id="book_printed" type="text" placeholder="출판일"><br>
+            <input id="book_price" type="text" placeholder="정가">
+        </div>
+
+        <div id="book_condition">
+            <div id="c_under_lined">
+                밑줄 흔적 :
+                <input type="radio" name="c_under_lined"> 없음
+                <input type="radio" name="c_under_lined"> 연필/샤프
+                <input type="radio" name="c_under_lined"> 볼펜/형광펜
+            </div>
+            <div id="c_written">
+                필기 흔적 :
+                <input type="radio" name="c_written"> 없음
+                <input type="radio" name="c_written"> 연필/샤프
+                <input type="radio" name="c_written"> 볼펜/형광펜
+            </div>
+            <div id="c_named">
+                이름 기입 :
+                <input type="radio" name="c_named"> 없음
+                <input type="radio" name="c_named"> 있음
+            </div>
+            <div id="c_page_age">
+                페이지 변색 :
+                <input type="radio" name="c_page_age"> 없음
+                <input type="radio" name="c_page_age"> 있음
+            </div>
+            <div id="c_ripped">
+                페이지 훼손 :
+                <input type="radio" name="c_ripped"> 없음
+                <input type="radio" name="c_ripped"> 있음
+            </div>
+            <div id="c_front">
+                이름 기입 :
+                <input type="radio" name="c_front"> 깨끗함
+                <input type="radio" name="c_front"> 깨끗하지 않음
+            </div>
+        </div>
+        <div>
+            <button onclick="submit()">등록</button>
+            <button><a href="index.html">취소</a></button>
+        </div>
+    </main>
+    <footer>
+    </footer>
+</body>
+
+</html>
