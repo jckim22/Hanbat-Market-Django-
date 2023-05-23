@@ -8,18 +8,59 @@
         </div>
     </div>
     <div class="row my-3">
+        <div>
+        <div>[책 제목] : {{ board_list.title }}</div>
+        <div>[저자] : {{ board_list.author }}</div>
+        <div>[판매자] : {{ board_list.seller}}</div>
+        <div>[출판사] : {{board_list.publisher}}</div>
+        </div>
         <table class="table table-bordered">
-            <tr>
-                <td>[글 제목] : {{ board_list.title }}</td>
-            </tr>
-            <tr>
-                <td>
-                    <p>[글 내용]</p>
+        
+        <td>
+                    <p>[상품 설명]</p>
                     {{ board_list.content|linebreaks }}
                     <p><small style="color:silver;text-align:right;">[{{ board_list.published_date|date:"Y-m-d H:i:s" }}]</small></p>
+                <text>
                 </td>
-            </tr>
-        </table>
+                </table>
+                
+  
+            <p>밑줄 유무:   
+                {% if board_list.under_line %}
+                O
+                {% else %}
+                X
+                {% endif %}
+            </p>
+            <p>필기 유무:   
+                {% if board_list.written %}
+                O
+                {% else %}
+                X
+                {% endif %}
+            </p>
+            <p> 이름 기입:   
+                {% if board_list.page_named %}
+                O
+                {% else %}
+                X
+                {% endif %}
+            </p>
+            <p> 페이지 변색:   
+                {% if board_list.page_age %}
+                O
+                {% else %}
+                X
+                {% endif %}
+            </p>
+            <p> 페이지 훼손:   
+                {% if board_list.ripped %}
+                O
+                {% else %}
+                X
+                {% endif %}
+            
+        
     </div>
     <div style="padding: 2px 20px; float:right;">
         <a href="{% url 'hanbat_market:index' %}" class="btn btn-primary">글 목록</a>

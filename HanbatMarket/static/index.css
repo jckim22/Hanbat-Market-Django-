@@ -1,0 +1,99 @@
+* {
+    box-sizing: border-box;
+}
+
+button > a{
+    text-decoration: none;
+    color: #000;
+}
+
+td#buy_button > button{
+    border: 1px solid #000;
+    background-color: #000;
+}
+
+td#buy_button > button:hover{
+    border: 1px solid #808080;
+    background-color: #808080;
+}
+
+td#buy_button > button>a{
+    color: #fff;
+}
+
+
+header{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 20px;
+}
+
+div#logo {
+    font-size: 50px;
+}
+
+#logo_img{
+    width: 50px;
+    height: 50px;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+table, th, tr, td{
+    border: 1px solid #000;
+    text-align: center;
+    margin: 30px 50px 0px 0px;
+}
+
+#db_table{
+    padding-bottom: 30px;
+}
+
+thead{
+    height: 50px;
+}
+
+tbody tr, td{
+    height: 70px;
+}
+#num{
+    width: 50px;
+}
+
+#book_name{
+    width: 300px;
+}
+
+#book_info{
+    width: 80px;
+}
+
+#min_price{
+    width: 150px;
+}
+
+#max_price{
+    width: 150px;
+}
+
+#time{
+    width: 200px;
+}
+
+#buy_button{
+    width: 80px;
+}
+
+#under_table{
+    display: flex;
+    justify-content: space-between;
+}
+
+#search_button{
+    margin-right: 50px;
+}

@@ -32,7 +32,7 @@ def regist(request):
     else:
         form = RegistForm()
     context = {'form': form,}
-    return render(request, 'HanbatMarket/regist_form.html', context)
+    return render(request, 'HanbatMarket/book_info.html', context)
 
 
 def detail(request, pk):

@@ -1,45 +1,54 @@
 {% extends 'base.html' %}
 {% block content %}
+    <main>
+        <div>
+            <div id="db_table">
+                <table>
+                    <thead>
+                        <th>No</th>
+                        <th>책 제목</th>
+                        <th>저자</th>
+                        <th>판매자</th>
+                        <th>출판사</th>
+                        <th>최소 입찰가</th>
+                        <th>즉시 구매가</th>
+                        <th>등록일</th>
+                        <th>비고</th>
+                    </thead>
+                    <!-- tbody 부분에 DB에서 가져온 정보를 출력?? -->
+                    <tbody>
+                        {% for post in board_list %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td><a href="{% url 'hanbat_market:detail' post.id %}">{{ post.title }}</a></td>
+                            <td width="100">{{ post.author }}</td>
+                            <td width="100">{{ post.seller }}</td>
+                            <td width="100">{{ post.publisher }}</td>
+                            <td>{{ post.price }}</td>
+                            <td>{{ post.price }}</td>
+                            <td>{{ post.published_date|date:"Y-m-d" }}</td>
+                            <td width="120">
+                                <a href="{% url 'hanbat_market:edit' post.id %}" class="btn btn-outline-info btn-sm">수정</a> 
+                                <a href="{% url 'hanbat_market:delete' post.id %}" onclick="if(!confirm('정말 삭제하시겠습니까?')){return false;}" 
+                                class="btn b    tn-outline-danger btn-sm">삭제</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div id="under_table">
 
-<div class="container">
-    <div class="row pt-4 my-3">
-        <div class="col-md-12">
-            <h3>게시판</h3>
-        </div>
-    </div>
-    <div class="row my-3">
-        <table class="table table-hover table-bordered">
-            <thead>
-                <th>No</th>
-                <th>제목</th>
-                <th>작성자</th>
-                <th>상품 가격</th>
-                <th>발행일</th>
-                <th>비고</th>
-            </thead>
-            <tbody>
-                {% for post in board_list %}
-                <tr>
-                    <td>{{ forloop.counter }}</td>
-                    <td><a href="{% url 'hanbat_market:detail' post.id %}">{{ post.title }}</a></td>
-                    <td width="100">{{ post.author }}</td>
-                    <td>{{ post.price }}</td>
-                    <td>{{ post.published_date|date:"Y-m-d" }}</td>
-                    <td width="120">
-                        <a href="{% url 'hanbat_market:edit' post.id %}" class="btn btn-outline-info btn-sm">수정</a> 
-                        <a href="{% url 'hanbat_market:delete' post.id %}" onclick="if(!confirm('정말 삭제하시겠습니까?')){return false;}" 
-                        class="btn b    tn-outline-danger btn-sm">삭제</a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-    <div class="row">
-        <div class="col-md-12 ">
-            <a href="{% url 'hanbat_market:regist' %}" class="btn btn-outline-secondary">글 등록</a>
-        </div>
-    </div>
+                <a href="{% url 'hanbat_market:regist' %}" class="btn btn-outline-secondary">글 등록</a>
+                    
+                
+                <form method="GET" action="">
+                    <div id="search">
+                        <input name="search" type="text">
+                        <button class="btn btn-primary" type="submit">검색</button>
+                      </div>
+                </form>  
+            </div>
 
     <!-- 페이징 처리 -->
     <div class="row my-3">
@@ -56,16 +65,10 @@
                 <a href="?page={{ board_list.next_page_number }}">다음</a>
                 <a href="?page={{ board_list.paginator.num_pages }}">끝</a>
             {% endif %}          
-            <form method="GET" action="">
-                <div id="search">
-                    <input name="search" type="text">
-                    <button class="btn btn-primary" type="submit">검색</button>
-                  </div>
-                  </form>  
+
 
         </div>
     </div>
-</div>
-
-{% endblock %}
- 
+        </div>
+    </main>
+    {% endblock %}
