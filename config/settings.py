@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+DEBUG = False # 배포 세팅1. 디버그모드를 꺼야 배포 가능!
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.kakao',
+    '(pythonanywhere ID).pythonanywhere.com',
 ]
 
 MIDDLEWARE = [
