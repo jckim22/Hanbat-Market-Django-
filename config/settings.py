@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.kakao',
-    '(pythonanywhere ID).pythonanywhere.com',
+    '(jckim2).pythonanywhere.com',
 ]
 
 MIDDLEWARE = [
