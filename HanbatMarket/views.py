@@ -6,6 +6,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 from django.db.models import Q, Count
 
+
 def index(request):
     page = request.GET.get('page', '1')  # 페이지 파라미터 얻기, 없으면 1
     board_list = Board.objects.order_by('price')
@@ -15,7 +16,6 @@ def index(request):
       Q(title__icontains = search) | #제목
       Q(author__icontains = search) #글쓴이
     )
-
     # 페이징 처리
     paginator = Paginator(board_list, 10)  # 페이지당 10개씩 보여주기
     page_obj = paginator.get_page(page)  # page에 해당하는 페이징 객체 생성
@@ -25,9 +25,11 @@ def index(request):
 
 def regist(request):
     if request.method == 'POST':
-        form = RegistForm(request.POST)
+        form = RegistForm(request.POST,request.FILES)
         if form.is_valid():
-            post = form.save()
+            post = form.save(commit=False)
+            post.seller = request.user  # 현재 로그인한 사용자를 writer로 고정시켜줘야함
+            post.save()
             return redirect('hanbat_market:index')
     else:
         form = RegistForm()

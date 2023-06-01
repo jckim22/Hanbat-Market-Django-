@@ -17,7 +17,19 @@
         </div>
     </a>
         </div>
-        <div id="login">로그인</div>
+
+    
+
+
+{% if user.is_authenticated %}
+    <p>안녕하세요, {{user}}님!<br><br>
+    <a href="{% url 'account_logout' %}">로그아웃</a></p>
+{% else %}
+{% load socialaccount %}
+
+<button type="button" onclick="location.href = '{% provider_login_url 'kakao' %}'"><img class = "kakao" src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" alt="" ></button>
+{% endif %}
+
     </header>
     <main>
     {% block content %}
