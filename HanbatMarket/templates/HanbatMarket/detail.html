@@ -11,8 +11,13 @@
         <div>
         <div>[책 제목] : {{ board_list.title }}</div>
         <div>[저자] : {{ board_list.author }}</div>
-        <div>[판매자] : {{ board_list.seller}}</div>
         <div>[출판사] : {{board_list.publisher}}</div>
+        <div>[판매자] : {{ board_list.seller}}</div>
+        <div>[판매자 카카오톡ID] : {{ board_list.kakaoId}}</div>
+        <div>[최대구매가] :{{board_list.minPrice}}</div>
+        <div>[최대구매가] :{{board_list.maxPrice}}</div>
+        <div>[상품 사진] </div>
+        <img src="{{ board_list.imgfile.url }}" width="500">
         </div>
         <table class="table table-bordered">
         

@@ -9,7 +9,7 @@ from django.db.models import Q, Count
 
 def index(request):
     page = request.GET.get('page', '1')  # 페이지 파라미터 얻기, 없으면 1
-    board_list = Board.objects.order_by('price')
+    board_list = Board.objects.order_by('minPrice')
     search = request.GET.get('search','')
     if search:
       board_list = board_list.filter(
@@ -28,7 +28,7 @@ def regist(request):
         form = RegistForm(request.POST,request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
-            post.seller = request.user  # 현재 로그인한 사용자를 writer로 고정시켜줘야함
+            post.seller = request.user  # 현재 로그인한 사용자를 seller로 고정시켜줘야함
             post.save()
             return redirect('hanbat_market:index')
     else:

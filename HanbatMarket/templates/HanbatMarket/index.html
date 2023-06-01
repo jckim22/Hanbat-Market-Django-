@@ -6,12 +6,13 @@
                 <table>
                     <thead>
                         <th>No</th>
-                        <th>책 제목</th>
+                        <th>상품명</th>    
+                        <th>상품사진</th>                    
                         <th>저자</th>
                         <th>판매자</th>
                         <th>출판사</th>
-                        <th>최소 입찰가</th>
-                        <th>즉시 구매가</th>
+                        <th>최소 구매가</th>
+                        <th>최대 구매가</th>
                         <th>등록일</th>
                         <th>비고</th>
                     </thead>
@@ -21,11 +22,12 @@
                         <tr>
                             <td>{{ forloop.counter }}</td>
                             <td><a href="{% url 'hanbat_market:detail' post.id %}">{{ post.title }}</a></td>
+                            <td><a href="{% url 'hanbat_market:detail' post.id %}"><img src="{{ post.imgfile.url }}" width="200"></a></td>
                             <td width="100">{{ post.author }}</td>
                             <td width="100">{{ post.seller }}</td>
                             <td width="100">{{ post.publisher }}</td>
-                            <td>{{ post.price }}</td>
-                            <td>{{ post.price }}</td>
+                            <td>{{ post.minPrice }}</td>
+                            <td>{{ post.maxPrice }}</td>
                             <td>{{ post.published_date|date:"Y-m-d" }}</td>
                             <td width="120">
                                 

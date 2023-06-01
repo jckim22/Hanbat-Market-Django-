@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-DEBUG = False # 배포 세팅1. 디버그모드를 꺼야 배포 가능!
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.kakao',
-    'jckim2.pythonanywhere.com',
+    
 ]
 
 MIDDLEWARE = [
@@ -95,6 +95,9 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Password validation
