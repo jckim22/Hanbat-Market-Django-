@@ -28,9 +28,17 @@
                             <td>{{ post.price }}</td>
                             <td>{{ post.published_date|date:"Y-m-d" }}</td>
                             <td width="120">
+                                
+                                {% if post.seller == user%} 
                                 <a href="{% url 'hanbat_market:edit' post.id %}" class="btn btn-outline-info btn-sm">수정</a> 
                                 <a href="{% url 'hanbat_market:delete' post.id %}" onclick="if(!confirm('정말 삭제하시겠습니까?')){return false;}" 
                                 class="btn b    tn-outline-danger btn-sm">삭제</a>
+                                {%else%}
+                                
+                                <a href="{% url 'hanbat_market:edit' post.id %}" class="btn btn-outline-info btn-sm"></a> 
+                                <a href="{% url 'hanbat_market:delete' post.id %}" onclick="if(!confirm('정말 삭제하시겠습니까?')){return false;}" 
+                                class="btn b    tn-outline-danger btn-sm"></a>
+                                {% endif %}
                             </td>
                         </tr>
                         {% endfor %}
@@ -38,9 +46,11 @@
                 </table>
             </div>
             <div id="under_table">
-
+                {% if user.is_authenticated %}
                 <a href="{% url 'hanbat_market:regist' %}" class="btn btn-outline-secondary">글 등록</a>
-                    
+                {% else %}
+                <a href="{% url 'hanbat_market:regist' %}" class="btn btn-outline-secondary"></a>
+                {% endif %} 
                 
                 <form method="GET" action="">
                     <div id="search">
