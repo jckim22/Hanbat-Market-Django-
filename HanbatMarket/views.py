@@ -17,7 +17,7 @@ def index(request):
       Q(author__icontains = search) #글쓴이
     )
     # 페이징 처리
-    paginator = Paginator(board_list, 10)  # 페이지당 10개씩 보여주기
+    paginator = Paginator(board_list, 9)  # 페이지당 10개씩 보여주기
     page_obj = paginator.get_page(page)  # page에 해당하는 페이징 객체 생성
 
     context = {'board_list': page_obj,'search':search}   # 페이징 객체(page_obj) 전달
