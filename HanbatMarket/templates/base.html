@@ -6,9 +6,9 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         {% load static %}
-        <title>Shop Homepage - Start Bootstrap Template</title>
+        <title>Hanbat-Market</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="{% static 'hanbat_logo.png'%}" />
         <!-- Bootstrap icons-->
         <link rel="stylesheet" href="{% static 'styles.css'%}">    
 
@@ -18,7 +18,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="{% url 'hanbat_market:index' %}">Hanbat-Market            <img id="logo_img" style="width:10%;" src="{% static 'hanbat_logo.png'%}" alt="HBNU_Logo"></a>
+                <a class="navbar-brand" href="{% url 'hanbat_market:index' %}">Hanbat-Market<img id="logo_img" style="width:10%;" src="{% static 'hanbat_logo.png'%}" alt="HBNU_Logo"></a>
                 
 
                     {% if user.is_authenticated %}
