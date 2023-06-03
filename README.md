@@ -1,5 +1,4 @@
-# Hanbat-Market
-<br>
+<h1>Hanbat-Market</h1>
 
 # ver 1.0.0: 교내 중고 거래플랫폼
 # ver 2.0.0: 교내 중고 경매플랫폼
