@@ -19,10 +19,8 @@
 <h4>Front-end : 유재영
 Back-end : 김주찬, 최성수</h4>
 
-<h2>3. github adress</h2> 
-https://github.com/jckim22/Hanbat-Market
 
-<h2>4. Enviroment</h2>
+<h2>3. Enviroment</h2>
 
 <h3>language</h3>
 <h4>-> Python 3.11.3</h4>
